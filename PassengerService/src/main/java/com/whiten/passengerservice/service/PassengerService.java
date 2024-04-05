@@ -52,7 +52,7 @@ public class PassengerService {
         passengerRepository.remove(id);
     }
 
-    public String searchRide(String location) {
+    public String searchRide() {
         // 向Drivers微服务请求所有状态为空闲的司机
         RestTemplate restTemplate = new RestTemplate();
 
@@ -72,8 +72,13 @@ public class PassengerService {
         return List.of("经济型", "舒适型", "豪华型");
     }
 
-    public String trackCarLocation(Long rideId) {
-        return "模拟位置信息";
+    public String trackCarLocation(Long OrderId) {
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        // 定义目标服务的URL
+        String serviceUrl = "http://localhost:8083/" + OrderId.toString() + "/get-location";
+        return restTemplate.getForObject(serviceUrl, String.class);
     }
 
     //用户下单尝试

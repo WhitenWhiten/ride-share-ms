@@ -22,8 +22,8 @@ public class PassengerController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<String> searchRide(@RequestParam String location) {
-        String passengers = passengerService.searchRide(location);
+    public ResponseEntity<String> searchRide() {
+        String passengers = passengerService.searchRide();
         return ResponseEntity.ok(passengers);
     }
 
@@ -38,24 +38,24 @@ public class PassengerController {
         String location = passengerService.trackCarLocation(rideId);
         return ResponseEntity.ok(location);
     }
-    @GetMapping("/make-order")
-    public void tryMakeOrder(@RequestBody Long driver_id, @RequestBody Long passenger_id) {
+    @PutMapping("/make-order")
+    public ResponseEntity<String> tryMakeOrder(@RequestBody Long driver_id, @RequestBody Long passenger_id) {
         String serviceUrl = "http://localhost:8083/create-order?passengerId={passengerId}&driverId={driverId}";
         RestTemplate restTemplate = new RestTemplate();
         HashMap<String, Object> paramMap = new HashMap<>();
         paramMap.put("passengerId", passenger_id);
         paramMap.put("driverId", driver_id);
         Long order_id = restTemplate.getForObject(serviceUrl, Long.class, paramMap);
+        return ResponseEntity.ok(order_id.toString());
     }
 
     //用户结束订单
-    @GetMapping("/close-order")
-    public void closeOrder(@RequestBody Long order_id) {
+    @PutMapping("/close-order")
+    public ResponseEntity<String> closeOrder(@RequestBody Long order_id) {
         RestTemplate restTemplate = new RestTemplate();
         String serviceUrl = "http://localhost:8083/";
         restTemplate.getForObject(serviceUrl+order_id.toString()+"/close", String.class);
+        return ResponseEntity.ok("closed");
     }
-
-
 
 }

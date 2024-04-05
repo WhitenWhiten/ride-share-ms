@@ -3,6 +3,7 @@ package com.whiten.drivermanagement.controller;
 import com.whiten.drivermanagement.entity.Driver;
 import com.whiten.drivermanagement.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -20,19 +21,19 @@ public class DriverController {
     }
 
     @GetMapping("/all-drivers")
-    public List<Driver> getAllDrivers() {
-        return (List<Driver>) driverService.getAllDrivers();
+    public ResponseEntity<List<Driver>> getAllDrivers() {
+        return ResponseEntity.ok((List<Driver>) driverService.getAllDrivers());
     }
 
     @GetMapping("/free-drivers")
-    public List<Driver> freeDrivers() {
+    public ResponseEntity<List<Driver>> freeDrivers() {
         List<Driver> ret = new ArrayList<>();
         ArrayList<Driver> all =  driverService.getAllDrivers();
         for (Driver d : all) {
             if (d.is_free())
                 ret.add(d);
         }
-        return ret;
+        return ResponseEntity.ok(ret);
     }
 
 
@@ -42,34 +43,39 @@ public class DriverController {
     }
 
     @PutMapping("/{id}/location")
-    public void updateDriverLocation(@PathVariable long id, @RequestBody String newLocation) {
+    public ResponseEntity<String> updateDriverLocation(@PathVariable long id, @RequestBody String newLocation) {
         driverService.updateDriverLocation(id, newLocation);
+        return ResponseEntity.ok("ok");
     }
 
     @PutMapping("/{id}/finish-order")
-    public void finishOrder(@PathVariable long id) {
+    public ResponseEntity<String> finishOrder(@PathVariable long id) {
         driverService.finishOrder(id);
+        return ResponseEntity.ok("ok");
     }
 
     @PutMapping("/{id}/new-order")
-    public void finishOrder(@PathVariable long id, @RequestBody long new_order) {
+    public ResponseEntity<String> finishOrder(@PathVariable long id, @RequestBody long new_order) {
         driverService.newOrder(id, new_order);
+        return ResponseEntity.ok("ok");
     }
 
     @GetMapping("/{id}/accept")
-    public void acceptOrder(@PathVariable long id, @RequestBody long waiting_order) {
+    public ResponseEntity<String> acceptOrder(@PathVariable long id, @RequestBody long waiting_order) {
         driverService.acceptOrder(id, waiting_order);
+        return ResponseEntity.ok("ok");
     }
 
     @PutMapping("/new-driver")
-    public void addDriver(@RequestBody String name, @RequestBody String vehicleType) {
+    public ResponseEntity<String> addDriver(@RequestBody String name, @RequestBody String vehicleType) {
         long id = driverService.nextId();
         driverService.saveDriver(new Driver(id, name, vehicleType, ""));
+        return ResponseEntity.ok("ok");
     }
 
     @GetMapping("/{id}/waiting-orders")
-    public ArrayList<Long> getWaitingOrders(@PathVariable long id) {
-        return driverService.getWaitingOrders(id);
+    public ResponseEntity<ArrayList<Long>> getWaitingOrders(@PathVariable long id) {
+        return ResponseEntity.ok(driverService.getWaitingOrders(id));
     }
 
 }

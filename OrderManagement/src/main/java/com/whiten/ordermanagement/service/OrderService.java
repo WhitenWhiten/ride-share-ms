@@ -25,11 +25,11 @@ public class OrderService{
     }
 
 
-    public Long createOrder(Long passengerId, Long driverId) {
+    public Long createOrder(Long passengerId, Long driverId, double price) {
         // 实现创建订单的逻辑
         Long oid = nextId();
         Date t = new Date();
-        Order order = new Order(oid, passengerId, driverId, OrderStatus.waiting, t, t);
+        Order order = new Order(oid, passengerId, driverId, price, "",OrderStatus.waiting, t, t);
         this.orderRepository.put(oid, order);
         return oid;
     }
@@ -66,5 +66,23 @@ public class OrderService{
     public List<Order> getAllOrders() {
         return new ArrayList<Order>(orderRepository.values());
     }
+
+    public void setRideLocation(Long oid, String loc){
+        if (orderRepository.containsKey(oid)) {
+            Order o = orderRepository.get(oid);
+            o.setCurrentLocation(loc);
+            o.setUpdateTime(new Date());
+        }
+    }
+
+    public String getRideLocation(Long oid) {
+        if (orderRepository.containsKey(oid)) {
+            Order o = orderRepository.get(oid);
+            return o.getCurrentLocation();
+        } else return "No such Order";
+    }
+
+
+
 
 }
