@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.633s</div>
+<div class="counter">0.482s</div>
 <p>duration</p>
 </div>
 </td>
@@ -82,7 +82,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">0.633s</td>
+<td class="success">0.482s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -90,8 +90,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>00:53:30.732 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.whiten.drivermanagement.DriverManagementApplicationTests]: DriverManagementApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-00:53:30.810 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.whiten.drivermanagement.DriverManagementApplication for test class com.whiten.drivermanagement.DriverManagementApplicationTests
+<pre>22:01:21.444 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.whiten.drivermanagement.DriverManagementApplicationTests]: DriverManagementApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+22:01:21.518 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.whiten.drivermanagement.DriverManagementApplication for test class com.whiten.drivermanagement.DriverManagementApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -101,27 +101,27 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.4)
 
-2024-04-05T00:53:32.122+08:00  INFO 107356 --- [driver-service] [    Test worker] c.w.d.DriverManagementApplicationTests   : Starting DriverManagementApplicationTests using Java 21.0.2 with PID 107356 (started by Alone in C:\Users\Alone\Desktop\ride-share-ms\DriverManagement)
-2024-04-05T00:53:32.123+08:00  INFO 107356 --- [driver-service] [    Test worker] c.w.d.DriverManagementApplicationTests   : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2024-04-05T00:53:32.844+08:00  INFO 107356 --- [driver-service] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=c723317a-a191-3b3b-83e4-256b86b6fdaf
-2024-04-05T00:53:32.905+08:00  WARN 107356 --- [driver-service] [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
-2024-04-05T00:53:32.908+08:00  WARN 107356 --- [driver-service] [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-04-05T00:53:34.460+08:00  INFO 107356 --- [driver-service] [    Test worker] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2024-04-05T00:53:35.681+08:00  INFO 107356 --- [driver-service] [    Test worker] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
-2024-04-05T00:53:35.689+08:00  INFO 107356 --- [driver-service] [    Test worker] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2024-04-05T00:53:35.714+08:00  WARN 107356 --- [driver-service] [    Test worker] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2024-04-05T00:53:35.720+08:00  INFO 107356 --- [driver-service] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
-2024-04-05T00:53:35.763+08:00  INFO 107356 --- [driver-service] [    Test worker] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2024-04-05T00:53:35.855+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2024-04-05T00:53:35.859+08:00  INFO 107356 --- [driver-service] [    Test worker] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2024-04-05T00:53:35.881+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2024-04-05T00:53:35.881+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2024-04-05T00:53:35.881+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2024-04-05T00:53:35.881+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2024-04-05T00:53:35.881+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2024-04-05T00:53:35.881+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2024-04-05T00:53:35.881+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2024-04-05T00:53:36.128+08:00  INFO 107356 --- [driver-service] [    Test worker] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8000/eureka/}, exception=I/O error on GET request for &quot;http://localhost:8000/eureka/apps/&quot;: Connect to http://localhost:8000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for &quot;http://localhost:8000/eureka/apps/&quot;: Connect to http://localhost:8000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+2024-04-06T22:01:22.811+08:00  INFO 20364 --- [driver-service] [    Test worker] c.w.d.DriverManagementApplicationTests   : Starting DriverManagementApplicationTests using Java 21.0.2 with PID 20364 (started by Alone in C:\Users\Alone\Desktop\ride-share-ms\DriverManagement)
+2024-04-06T22:01:22.812+08:00  INFO 20364 --- [driver-service] [    Test worker] c.w.d.DriverManagementApplicationTests   : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-04-06T22:01:23.563+08:00  INFO 20364 --- [driver-service] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=c723317a-a191-3b3b-83e4-256b86b6fdaf
+2024-04-06T22:01:23.625+08:00  WARN 20364 --- [driver-service] [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-04-06T22:01:23.628+08:00  WARN 20364 --- [driver-service] [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-04-06T22:01:25.178+08:00  INFO 20364 --- [driver-service] [    Test worker] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2024-04-06T22:01:26.380+08:00  INFO 20364 --- [driver-service] [    Test worker] o.s.cloud.commons.util.InetUtils         : Cannot determine local hostname
+2024-04-06T22:01:26.389+08:00  INFO 20364 --- [driver-service] [    Test worker] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2024-04-06T22:01:26.410+08:00  WARN 20364 --- [driver-service] [    Test worker] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-04-06T22:01:26.416+08:00  INFO 20364 --- [driver-service] [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-04-06T22:01:26.454+08:00  INFO 20364 --- [driver-service] [    Test worker] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-04-06T22:01:26.526+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-04-06T22:01:26.532+08:00  INFO 20364 --- [driver-service] [    Test worker] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2024-04-06T22:01:26.552+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2024-04-06T22:01:26.553+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2024-04-06T22:01:26.553+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2024-04-06T22:01:26.553+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2024-04-06T22:01:26.553+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2024-04-06T22:01:26.553+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2024-04-06T22:01:26.553+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2024-04-06T22:01:26.800+08:00  INFO 20364 --- [driver-service] [    Test worker] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8000/eureka/}, exception=I/O error on GET request for &quot;http://localhost:8000/eureka/apps/&quot;: Connect to http://localhost:8000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on GET request for &quot;http://localhost:8000/eureka/apps/&quot;: Connect to http://localhost:8000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:915)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:895)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:790)
@@ -317,8 +317,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:889)
 	... 152 more
 
-2024-04-05T00:53:36.131+08:00  WARN 107356 --- [driver-service] [    Test worker] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on GET request for &quot;http://localhost:8000/eureka/apps/&quot;: Connect to http://localhost:8000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-2024-04-05T00:53:36.132+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_DRIVER-SERVICE/localhost:driver-service:8081 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
+2024-04-06T22:01:26.804+08:00  WARN 20364 --- [driver-service] [    Test worker] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on GET request for &quot;http://localhost:8000/eureka/apps/&quot;: Connect to http://localhost:8000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+2024-04-06T22:01:26.804+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_DRIVER-SERVICE/localhost:driver-service:8081 - was unable to refresh its cache! This periodic background refresh will be retried in 30 seconds. status = Cannot execute request on any known server stacktrace = com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.getApplications(EurekaHttpClientDecorator.java:134)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$6.execute(EurekaHttpClientDecorator.java:137)
@@ -463,17 +463,17 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 
-2024-04-05T00:53:36.134+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from primary servers failed
-2024-04-05T00:53:36.134+08:00  WARN 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Using default backup registry implementation which does not do anything.
-2024-04-05T00:53:36.136+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from backup servers failed
-2024-04-05T00:53:36.137+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2024-04-05T00:53:36.140+08:00  INFO 107356 --- [driver-service] [    Test worker] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2024-04-05T00:53:36.145+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1712249616144 with initial instances count: 0
-2024-04-05T00:53:36.148+08:00  INFO 107356 --- [driver-service] [    Test worker] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application DRIVER-SERVICE with eureka with status UP
-2024-04-05T00:53:36.149+08:00  INFO 107356 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1712249616149, current=UP, previous=STARTING]
-2024-04-05T00:53:36.150+08:00  INFO 107356 --- [driver-service] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_DRIVER-SERVICE/localhost:driver-service:8081: registering service...
-2024-04-05T00:53:36.158+08:00  INFO 107356 --- [driver-service] [    Test worker] c.w.d.DriverManagementApplicationTests   : Started DriverManagementApplicationTests in 5.235 seconds (process running for 6.076)
-2024-04-05T00:53:36.195+08:00  INFO 107356 --- [driver-service] [nfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8000/eureka/}, exception=I/O error on POST request for &quot;http://localhost:8000/eureka/apps/DRIVER-SERVICE&quot;: Connect to http://localhost:8000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for &quot;http://localhost:8000/eureka/apps/DRIVER-SERVICE&quot;: Connect to http://localhost:8000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+2024-04-06T22:01:26.805+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from primary servers failed
+2024-04-06T22:01:26.805+08:00  WARN 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Using default backup registry implementation which does not do anything.
+2024-04-06T22:01:26.806+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Initial registry fetch from backup servers failed
+2024-04-06T22:01:26.807+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2024-04-06T22:01:26.808+08:00  INFO 20364 --- [driver-service] [    Test worker] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2024-04-06T22:01:26.813+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1712412086812 with initial instances count: 0
+2024-04-06T22:01:26.814+08:00  INFO 20364 --- [driver-service] [    Test worker] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application DRIVER-SERVICE with eureka with status UP
+2024-04-06T22:01:26.815+08:00  INFO 20364 --- [driver-service] [    Test worker] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1712412086815, current=UP, previous=STARTING]
+2024-04-06T22:01:26.816+08:00  INFO 20364 --- [driver-service] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_DRIVER-SERVICE/localhost:driver-service:8081: registering service...
+2024-04-06T22:01:26.823+08:00  INFO 20364 --- [driver-service] [    Test worker] c.w.d.DriverManagementApplicationTests   : Started DriverManagementApplicationTests in 5.197 seconds (process running for 6.075)
+2024-04-06T22:01:26.853+08:00  INFO 20364 --- [driver-service] [nfoReplicator-0] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8000/eureka/}, exception=I/O error on POST request for &quot;http://localhost:8000/eureka/apps/DRIVER-SERVICE&quot;: Connect to http://localhost:8000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for &quot;http://localhost:8000/eureka/apps/DRIVER-SERVICE&quot;: Connect to http://localhost:8000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
 	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:915)
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:895)
 	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:790)
@@ -539,8 +539,8 @@ Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http:
 	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:889)
 	... 22 more
 
-2024-04-05T00:53:36.195+08:00  WARN 107356 --- [driver-service] [nfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for &quot;http://localhost:8000/eureka/apps/DRIVER-SERVICE&quot;: Connect to http://localhost:8000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-2024-04-05T00:53:36.197+08:00  WARN 107356 --- [driver-service] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_DRIVER-SERVICE/localhost:driver-service:8081 - registration failed Cannot execute request on any known server
+2024-04-06T22:01:26.854+08:00  WARN 20364 --- [driver-service] [nfoReplicator-0] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for &quot;http://localhost:8000/eureka/apps/DRIVER-SERVICE&quot;: Connect to http://localhost:8000 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
+2024-04-06T22:01:26.854+08:00  WARN 20364 --- [driver-service] [nfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_DRIVER-SERVICE/localhost:driver-service:8081 - registration failed Cannot execute request on any known server
 
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.2.jar:2.0.2]
@@ -558,7 +558,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
 	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
 
-2024-04-05T00:53:36.202+08:00  WARN 107356 --- [driver-service] [nfoReplicator-0] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
+2024-04-06T22:01:26.859+08:00  WARN 20364 --- [driver-service] [nfoReplicator-0] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
 
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.2.jar:2.0.2]
@@ -597,7 +597,7 @@ WARNING: Dynamic loading of agents will be disallowed by default in a future rel
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.7</a> at 2024年4月5日 00:53:37</p>
+<a href="http://www.gradle.org">Gradle 8.7</a> at 2024年4月6日 22:01:27</p>
 </div>
 </div>
 </body>

@@ -3,11 +3,9 @@ package com.whiten.ordermanagement.service;
 import com.whiten.ordermanagement.entity.Order;
 import com.whiten.ordermanagement.entity.OrderStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class OrderService{
@@ -31,6 +29,13 @@ public class OrderService{
         Date t = new Date();
         Order order = new Order(oid, passengerId, driverId, price, "",OrderStatus.waiting, t, t);
         this.orderRepository.put(oid, order);
+        //通知Driver系统添加待接单的订单
+        String serviceUrl = "http://127.0.0.1:8080/ds/add-waiting-order?driverId={driverId}&orderId={orderId}";
+        RestTemplate restTemplate = new RestTemplate();
+        HashMap<String, Object> paramMap = new HashMap<>();
+        paramMap.put("driverId", driverId);
+        paramMap.put("orderId", oid);
+        restTemplate.put(serviceUrl, null,paramMap);
         return oid;
     }
 
@@ -54,8 +59,18 @@ public class OrderService{
             Order o = orderRepository.get(oid);
             OrderStatus os = o.getStatus();
             if (os.equals(OrderStatus.waiting) || os.equals(OrderStatus.ongoing)){
-                o.setStatus(OrderStatus.closed);
                 o.setUpdateTime(new Date());
+                String serviceUrl = "http://127.0.0.1:8080/ds/close-order?driverId={driverId}&profit={profit}"; //通知Driver系统，让对应司机知道订单已顺利关闭
+                RestTemplate restTemplate = new RestTemplate();
+                HashMap<String, Object> paramMap = new HashMap<>();
+                paramMap.put("driverId", orderRepository.get(oid).getDriverId());
+                double profit = 0;
+                if (os.equals(OrderStatus.ongoing)) {
+                    profit = orderRepository.get(oid).getPrice();
+                }
+                paramMap.put("profit", profit);
+                restTemplate.put(serviceUrl, null, paramMap);
+                o.setStatus(OrderStatus.closed);
                 return true;
             } else return false;
         } else {
@@ -63,8 +78,19 @@ public class OrderService{
         }
     }
 
-    public List<Order> getAllOrders() {
-        return new ArrayList<Order>(orderRepository.values());
+    public Order[] getAllOrders() {
+        Collection<Order> ret = orderRepository.values();
+        return (Order[]) ret.toArray(new Order[ret.size()]);
+    }
+
+    public Order[] getRelatedOrders(long passengerId){
+        Order[] all = getAllOrders();
+        ArrayList<Order> ret = new ArrayList<>();
+        for(Order o : all) {
+            if (o.getPassengerId() == passengerId)
+                ret.add(o);
+        }
+        return (Order[]) ret.toArray(new Order[ret.size()]);
     }
 
     public void setRideLocation(Long oid, String loc){
@@ -80,6 +106,30 @@ public class OrderService{
             Order o = orderRepository.get(oid);
             return o.getCurrentLocation();
         } else return "No such Order";
+    }
+
+    public OrderStatus getOrderState(Long oid) {
+        if (orderRepository.containsKey(oid)) {
+            return orderRepository.get(oid).getStatus();
+        } else {
+            return OrderStatus.non_exist;
+        }
+    }
+
+    public double getOrderPrice(Long oid) {
+        if (orderRepository.containsKey(oid)) {
+            return orderRepository.get(oid).getPrice();
+        } else {
+            return Double.MAX_VALUE;
+        }
+    }
+
+    public Long getOrderPassengerId(Long oid) {
+        if (orderRepository.containsKey(oid)) {
+            return orderRepository.get(oid).getPassengerId();
+        } else {
+            return -1L;
+        }
     }
 
 
