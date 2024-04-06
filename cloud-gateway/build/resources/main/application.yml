@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
+
+eureka:
+  instance:
+    instance-id: ms-gateway
+    hostname: ms-gateway
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://127.0.0.1:8000/eureka/
+
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: "driver-service"
+          uri: "http://127.0.0.1:8081/"
+          predicates:
+            - Path=/ds/**
+          filters:
+            - StripPrefix=1
+        - id: "passenger-service"
+          uri: "http://127.0.0.1:8082/"
+          predicates:
+            - Path=/ps/**
+          filters:
+            - StripPrefix=1
+        - id: "order-service"
+          uri: "http://127.0.0.1:8083/"
+          predicates:
+            - Path=/os/**
+          filters:
+            - StripPrefix=1
